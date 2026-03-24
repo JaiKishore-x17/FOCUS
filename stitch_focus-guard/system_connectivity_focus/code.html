@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#e6e6e6",
+              "on-tertiary-fixed-variant": "#555555",
+              "primary-container": "#32353d",
+              "error": "#ba1a1a",
+              "outline": "#c0c0c0",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#555555",
+              "primary-dim": "#515258",
+              "surface-container-high": "#e9ecef",
+              "tertiary": "#555555",
+              "primary": "#111318",
+              "primary-fixed": "#e6e6e6",
+              "surface-container": "#f1f3f5",
+              "surface": "#ffffff",
+              "background": "#ffffff",
+              "on-secondary-container": "#111318",
+              "surface-dim": "#e6e6e6",
+              "on-primary-fixed": "#111318",
+              "secondary": "#8e8e8e",
+              "on-tertiary-container": "#111318",
+              "inverse-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-tint": "#111318",
+              "on-tertiary-fixed": "#111318",
+              "on-primary-fixed-variant": "#32353d",
+              "on-secondary-fixed": "#111318",
+              "surface-container-low": "#f8f9fa",
+              "on-background": "#111318",
+              "on-primary-container": "#f8f9fa",
+              "on-surface-variant": "#434655",
+              "outline-variant": "#e6e6e6",
+              "tertiary-dim": "#53506b",
+              "on-surface": "#111318",
+              "secondary-container": "#c0c0c0",
+              "primary-fixed-dim": "#c0c0c0",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#e6e6e6",
+              "error-dim": "#4e0309",
+              "surface-variant": "#f1f3f5",
+              "inverse-surface": "#2e3039",
+              "tertiary-fixed-dim": "#f1f3f5",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#ffffff",
+              "secondary-fixed": "#f8f9fa",
+              "secondary-dim": "#515359",
+              "surface-container-highest": "#dee2e6",
+              "surface-bright": "#ffffff",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f0fc"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .inner-shadow {
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+        }
+        .metallic-gradient {
+            background: linear-gradient(135deg, #e6e6e6 0%, #8e8e8e 100%);
+        }
+        .glass-layer {
+            backdrop-filter: blur(20px);
+        }
+        .text-instrumentation {
+            letter-spacing: 0.3em;
+            font-size: 9px;
+            font-weight: 800;
+        }
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface selection:bg-primary-fixed">
+<!-- Top Navigation -->
+<header class="fixed top-0 z-50 w-full bg-white/60 dark:bg-zinc-950/60 backdrop-blur-xl border-b border-white/10">
+<nav class="flex justify-between items-center w-full px-5 py-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-zinc-900 text-xl" data-icon="security">security</span>
+<span class="font-extrabold tracking-[0.2em] text-[13px] text-zinc-900 uppercase">Focus</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline/20 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSxEFHWIliogRHjE0S17ssfUs_Wfv5iNNoVgmBS3vW_sOY-w-xb-zTMSkkAy1VgWEvUpR87pTkGIontWcr5rqMyUMmwKrbCPs_ZnnqtaCovMOfTlzlS9MI_fOcJ8QgPKkbESyJdWQZRdAzy6eKbP7F0VqmlU5qJ6KX2sFFQDQqJvHLTLtHHj7IUVM6oosEXfwH1Q6vgL703mUvUAQySyXZQ2UfPy-hhi0kxNnLxk9rRYA9CqwwTQ7TM7wuEn_akek038xs3n4ixIg"/>
+</div>
+</nav>
+</header>
+<main class="pt-20 pb-28 px-4 max-w-full mx-auto space-y-6">
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+<div class="absolute -top-12 -left-12 w-48 h-48 bg-zinc-100 rounded-full blur-3xl opacity-50 -z-10"></div>
+<div class="flex flex-col gap-6">
+<div class="space-y-1">
+<span class="text-instrumentation text-secondary uppercase block">Communication Nexus</span>
+<h1 class="text-[36px] font-[200] leading-[1.1] tracking-[0.1em] text-primary break-words">CONNECTIVITY</h1>
+<p class="text-[10px] text-on-surface-variant font-medium tracking-wide opacity-70 leading-relaxed">
+                        High-fidelity synchronization between core processing units and biometric arrays.
+                    </p>
+</div>
+<div class="relative group w-full flex justify-center">
+<div class="bg-white/60 glass-layer p-6 rounded-2xl border border-white/40 shadow-sm w-full max-w-[280px] flex flex-col items-center gap-4">
+<div class="w-16 h-16 rounded-full metallic-gradient p-[1px]">
+<div class="w-full h-full rounded-full bg-white flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-[28px] text-primary" data-icon="bluetooth_searching">bluetooth_searching</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<div class="text-instrumentation text-primary">SIGNAL STRENGTH</div>
+<div class="flex items-end gap-1 justify-center h-6">
+<div class="w-1 h-2 bg-primary rounded-full"></div>
+<div class="w-1 h-4 bg-primary rounded-full"></div>
+<div class="w-1 h-6 bg-primary rounded-full"></div>
+<div class="w-1 h-4 bg-zinc-200 rounded-full"></div>
+<div class="w-1 h-3 bg-zinc-200 rounded-full"></div>
+</div>
+<div class="text-[18px] font-extrabold tracking-widest text-primary">-64 <span class="text-[9px] opacity-40">dBm</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Workspace -->
+<div class="space-y-4">
+<!-- BLE Scanner List -->
+<div class="bg-white/60 glass-layer rounded-3xl p-5 border border-white/40 shadow-sm space-y-5">
+<div class="flex justify-between items-center">
+<div>
+<h2 class="text-instrumentation text-primary">PERIPHERALS</h2>
+<div class="text-[9px] text-secondary tracking-wider">4 ACTIVE BROADCASTS</div>
+</div>
+<button class="bg-primary text-on-primary px-4 py-1.5 rounded-full text-[9px] font-bold tracking-widest hover:opacity-90 transition-all flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="refresh">refresh</span>
+                        RESCAN
+                    </button>
+</div>
+<div class="space-y-3">
+<!-- Device Row -->
+<div class="flex items-center justify-between p-4 bg-white/80 rounded-2xl border border-zinc-100/50">
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-10 h-10 shrink-0 rounded-xl bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-900 text-lg" data-icon="watch_vital">vitals</span>
+</div>
+<div class="truncate">
+<div class="font-extrabold tracking-[0.1em] text-[11px] text-zinc-900 truncate">MUON-PULSE 01</div>
+<div class="text-[9px] text-secondary tracking-tight truncate">MAC: ...4D:5E</div>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<div class="text-right">
+<div class="text-[9px] font-extrabold text-primary">-42</div>
+<div class="text-[8px] text-secondary font-bold">RSSI</div>
+</div>
+<button class="w-8 h-8 rounded-full inner-shadow border border-zinc-100 flex items-center justify-center text-zinc-900 opacity-30">
+<span class="material-symbols-outlined text-[16px]" data-icon="link">link</span>
+</button>
+</div>
+</div>
+<!-- Device Row Active -->
+<div class="flex items-center justify-between p-4 bg-primary text-on-primary rounded-2xl shadow-lg">
+<div class="flex items-center gap-4 min-w-0">
+<div class="w-10 h-10 shrink-0 rounded-xl bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg" data-icon="podcasts">podcasts</span>
+</div>
+<div class="truncate">
+<div class="font-extrabold tracking-[0.1em] text-[11px] text-white truncate">SILVER-CORE HUD</div>
+<div class="text-[9px] text-white/50 tracking-tight">ACTIVE SESSION</div>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<div class="text-right">
+<div class="text-[9px] font-extrabold text-white">-12</div>
+<div class="text-[8px] text-white/50 font-bold">4ms</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[16px]" data-icon="link_off" style="font-variation-settings: 'FILL' 1;">link_off</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Terminal Window -->
+<div class="bg-primary rounded-3xl p-5 overflow-hidden flex flex-col border border-primary-container shadow-xl max-h-64">
+<div class="flex items-center justify-between mb-4">
+<div class="text-instrumentation text-white/40 uppercase">System Stream</div>
+<div class="flex gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-error"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-zinc-700"></div>
+</div>
+</div>
+<div class="flex-1 font-mono text-[9px] leading-tight text-zinc-500 overflow-y-auto space-y-1 pr-2">
+<div>[08:42:12] <span class="text-white">SENT: REQUEST_HEARTBEAT</span></div>
+<div>[08:42:15] <span class="text-zinc-300">RCVD: RSSI_-12dBm_CRYSTAL</span></div>
+<div class="animate-pulse">[08:42:24] <span class="text-white">STREAMING_TELEMETRY...</span></div>
+<div class="text-zinc-700 truncate">01010111 01001000 01011001</div>
+<div class="text-zinc-700 truncate">01001110 01001111 01010100</div>
+</div>
+<div class="mt-4 pt-3 border-t border-white/10">
+<div class="flex items-center gap-2">
+<span class="text-zinc-600 font-mono text-[9px]">&gt;</span>
+<input class="bg-transparent border-none outline-none text-white font-mono text-[9px] tracking-widest w-full placeholder:text-zinc-700" placeholder="CMD..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Stats Bar -->
+<div class="bg-surface-container-high rounded-3xl p-5 border border-outline-variant">
+<div class="flex justify-between items-center">
+<div>
+<div class="text-instrumentation text-primary">BANDWIDTH</div>
+<div class="text-[18px] font-[300] tracking-tighter mt-0.5">2.4 <span class="text-[10px] opacity-50">MB/s</span></div>
+</div>
+<div class="w-16 h-1 bg-zinc-200 rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-primary"></div>
+</div>
+</div>
+<div class="text-[8px] text-secondary tracking-wider font-bold uppercase mt-2">AES-256 ENCRYPTED</div>
+</div>
+</div>
+<!-- Metric Footer -->
+<div class="grid grid-cols-2 gap-4 pt-2">
+<div class="text-center p-3 bg-white/30 rounded-2xl">
+<div class="text-[8px] text-secondary mb-0.5 font-bold uppercase tracking-widest">Latency</div>
+<div class="text-[11px] font-extrabold tracking-widest">0.004 MS</div>
+</div>
+<div class="text-center p-3 bg-white/30 rounded-2xl">
+<div class="text-[8px] text-secondary mb-0.5 font-bold uppercase tracking-widest">Integrity</div>
+<div class="text-[11px] font-extrabold tracking-widest">99.99%</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-2xl rounded-t-3xl border-t border-white/20 shadow-lg">
+<div class="flex flex-col items-center justify-center text-zinc-400 opacity-50 px-2">
+<span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="videocam">videocam</span>
+<span class="text-[8px] font-extrabold tracking-widest">MONITOR</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 opacity-50 px-2">
+<span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="settings_accessibility">settings_accessibility</span>
+<span class="text-[8px] font-extrabold tracking-widest">SENSE</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-900 bg-zinc-100/80 rounded-2xl px-5 py-2">
+<span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="bluetooth">bluetooth</span>
+<span class="text-[8px] font-extrabold tracking-widest">CONNECT</span>
+</div>
+<div class="flex flex-col items-center justify-center text-zinc-400 opacity-50 px-2">
+<span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="tune">tune</span>
+<span class="text-[8px] font-extrabold tracking-widest">LOGIC</span>
+</div>
+</nav>
+</body></html>

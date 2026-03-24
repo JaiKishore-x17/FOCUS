@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#e6e6e6",
+              "on-tertiary-fixed-variant": "#555555",
+              "primary-container": "#32353d",
+              "error": "#ba1a1a",
+              "outline": "#c0c0c0",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#555555",
+              "primary-dim": "#515258",
+              "surface-container-high": "#e9ecef",
+              "tertiary": "#555555",
+              "primary": "#111318",
+              "primary-fixed": "#e6e6e6",
+              "surface-container": "#f1f3f5",
+              "surface": "#ffffff",
+              "background": "#ffffff",
+              "on-secondary-container": "#111318",
+              "surface-dim": "#e6e6e6",
+              "on-primary-fixed": "#111318",
+              "secondary": "#8e8e8e",
+              "on-tertiary-container": "#111318",
+              "inverse-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-tint": "#111318",
+              "on-tertiary-fixed": "#111318",
+              "on-primary-fixed-variant": "#32353d",
+              "on-secondary-fixed": "#111318",
+              "surface-container-low": "#f8f9fa",
+              "on-background": "#111318",
+              "on-primary-container": "#f8f9fa",
+              "on-surface-variant": "#434655",
+              "outline-variant": "#e6e6e6",
+              "tertiary-dim": "#53506b",
+              "on-surface": "#111318",
+              "secondary-container": "#c0c0c0",
+              "primary-fixed-dim": "#c0c0c0",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#e6e6e6",
+              "error-dim": "#4e0309",
+              "surface-variant": "#f1f3f5",
+              "inverse-surface": "#2e3039",
+              "tertiary-fixed-dim": "#f1f3f5",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#ffffff",
+              "secondary-fixed": "#f8f9fa",
+              "secondary-dim": "#515359",
+              "surface-container-highest": "#dee2e6",
+              "surface-bright": "#ffffff",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f0fc"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.75rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 20;
+        }
+        .inner-shadow {
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+        }
+        .rotated-layer {
+            transform: rotate(-1.5deg) translate(-4px, 2px);
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background min-h-screen pb-24 overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-white/70 dark:bg-zinc-950/70 backdrop-blur-xl text-zinc-900 dark:text-zinc-100 font-['Inter'] font-light tracking-[0.2em] uppercase text-[10px] sticky top-0 z-50 shadow-sm border-b border-zinc-100">
+<div class="flex justify-between items-center w-full px-5 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px]">security</span>
+<h1 class="font-extrabold tracking-[0.25em] text-[12px] text-zinc-900 dark:text-white">FOCUS</h1>
+</div>
+<div class="flex items-center">
+<div class="w-7 h-7 rounded-full overflow-hidden bg-surface-container-highest ring-1 ring-zinc-200">
+<img class="w-full h-full object-cover" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD96cih8DkTw3-SXyThX01p6ok9e64XQOjF_iRblDeUdpUAJdmj9UNlhJnmixd7CzTkSroi3LzUdLGemnYaJS658Y8OAJH5ae4a0qpbUw0Uk4HT58cCXCmTmUR9vQjlT3Kr3varBrrvFQP06VGihzKwUcHtkO6nlw2yC6O2PttGm3M2EuR9ft_cu3rYUP8oWRc654iWSxO69pfvjRWU3HXszSgSYj7PpjAjRtzxuMVHtgpV78FyL2PTzQ88u1eeGOldmGOFQIBKSZE"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-md mx-auto px-4 pt-6">
+<!-- Hero Section -->
+<section class="relative mb-8">
+<div class="absolute inset-0 bg-surface-container-high/20 rounded-xl rotated-layer -z-10"></div>
+<div class="glass-card bg-white/60 p-6 rounded-xl shadow-sm border border-white/40 relative z-10">
+<div class="flex flex-col gap-4">
+<div>
+<span class="text-[8px] font-extrabold tracking-[0.4em] text-primary mb-1 block">SYSTEM STATE</span>
+<h2 class="text-[32px] font-light tracking-[0.15em] leading-tight break-words">CALIBRATION</h2>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 rounded-full font-extrabold tracking-[0.25em] text-[9px] uppercase active:scale-[0.98] transition-all">
+                        SAVE PARAMETERS
+                    </button>
+</div>
+</div>
+</section>
+<!-- Controls Grid -->
+<div class="space-y-6">
+<!-- Joysticks Section - Compact Row -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Pan Control -->
+<div class="glass-card bg-white/40 p-4 rounded-xl border border-white/20 flex flex-col items-center">
+<span class="text-[8px] font-extrabold tracking-[0.3em] text-zinc-400 mb-4 uppercase w-full">SERVO_PAN</span>
+<div class="relative w-28 h-28 rounded-full bg-surface-container-highest/50 flex items-center justify-center inner-shadow">
+<div class="w-full h-[1px] bg-primary/5 absolute top-1/2 -translate-y-1/2"></div>
+<div class="h-full w-[1px] bg-primary/5 absolute left-1/2 -translate-x-1/2"></div>
+<!-- Joystick Knob -->
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#e6e6e6] to-[#8e8e8e] shadow-md flex items-center justify-center cursor-pointer active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-white text-[16px]">drag_pan</span>
+</div>
+</div>
+</div>
+<!-- Tilt Control -->
+<div class="glass-card bg-white/40 p-4 rounded-xl border border-white/20 flex flex-col items-center">
+<span class="text-[8px] font-extrabold tracking-[0.3em] text-zinc-400 mb-4 uppercase w-full text-right">SERVO_TILT</span>
+<div class="relative w-28 h-28 rounded-full bg-surface-container-highest/50 flex items-center justify-center inner-shadow">
+<div class="w-full h-[1px] bg-primary/5 absolute top-1/2 -translate-y-1/2"></div>
+<div class="h-full w-[1px] bg-primary/5 absolute left-1/2 -translate-x-1/2"></div>
+<!-- Joystick Knob -->
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#e6e6e6] to-[#8e8e8e] shadow-md flex items-center justify-center cursor-pointer active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-white text-[16px]">unfold_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Center Reset -->
+<div class="flex justify-center -mt-2">
+<button class="w-14 h-14 rounded-full bg-white/80 backdrop-blur-md border border-white/60 flex flex-col items-center justify-center group active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined text-primary text-[18px]">restart_alt</span>
+<span class="text-[7px] font-extrabold tracking-widest uppercase">CENTER</span>
+</button>
+</div>
+<!-- Offset Markers -->
+<div class="glass-card bg-white/40 p-5 rounded-xl border border-white/20">
+<h3 class="text-[9px] font-extrabold tracking-[0.25em] uppercase mb-5">OFFSET_MARKERS</h3>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-[7px] font-medium tracking-widest text-zinc-400 uppercase mb-1.5">TRIM_HORIZ</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg px-3 py-2 font-mono text-[11px] tracking-widest focus:ring-1 focus:ring-primary/10 text-center" type="text" value="+2.45"/>
+</div>
+<div>
+<label class="block text-[7px] font-medium tracking-widest text-zinc-400 uppercase mb-1.5">TRIM_VERT</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg px-3 py-2 font-mono text-[11px] tracking-widest focus:ring-1 focus:ring-primary/10 text-center" type="text" value="-1.12"/>
+</div>
+</div>
+</div>
+<!-- Hint Section -->
+<div class="glass-card bg-primary text-on-primary p-5 rounded-xl">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-silver text-[16px]">info</span>
+<span class="text-[8px] font-extrabold tracking-[0.25em] uppercase">SYSTEM_HINT</span>
+</div>
+<p class="text-[9px] leading-relaxed opacity-70 tracking-wide uppercase">
+                    ENSURE HARDWARE IS ON A LEVEL SURFACE. MANUAL OVERRIDES DISENGAGE SENSORS.
+                </p>
+</div>
+<!-- Boundary Tool -->
+<div class="glass-card bg-white/40 p-5 rounded-xl border border-white/20">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-[9px] font-extrabold tracking-[0.25em] uppercase">BOARD_AREA</h3>
+<div class="flex gap-2">
+<button class="text-[7px] font-extrabold tracking-[0.15em] uppercase px-3 py-1.5 bg-surface-container rounded-md">BOUNDS</button>
+<button class="text-[7px] font-extrabold tracking-[0.15em] uppercase px-3 py-1.5 bg-primary text-white rounded-md">COMMIT</button>
+</div>
+</div>
+<div class="aspect-[16/9] w-full bg-zinc-900 rounded-lg relative overflow-hidden ring-1 ring-white/10">
+<img class="w-full h-full object-cover opacity-20 grayscale" data-alt="Circuit board view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf-fv3eeZKf_UWtecAHSMJ6Cc8nCkmjr_50Wsz5_j6MpT2M7ME1et_nltSxUHPDLGuYrYLZuEfulRelUIQYM8Qyh7WVX5kiLgKKHoM53wyP_r-35b3pWpKsC6Qcj4X_wlbJCjux41TRb0ngA5SSPhChbpT6qUZQy-I51tKxQrkqTHx_YuaOPcYQ9EEqTcfQSM70vE1xwq3PjoVWtJTzwYhTT86JonK3sXShL50XypGliDpcGhSz7-E1LBYEp7ShKtzSKQJIaQ6zNw"/>
+<div class="absolute inset-0 flex items-center justify-center p-4">
+<div class="w-full h-full border border-dashed border-white/20 rounded-lg relative">
+<div class="absolute -top-1 -left-1 w-2.5 h-2.5 bg-white rounded-full"></div>
+<div class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-white rounded-full"></div>
+<div class="absolute -bottom-1 -left-1 w-2.5 h-2.5 bg-white rounded-full"></div>
+<div class="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-white rounded-full"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="text-[7px] font-extrabold tracking-[0.5em] text-white/30 uppercase">ZONE_ACTIVE</span>
+</div>
+</div>
+</div>
+<!-- Small Data Overlay -->
+<div class="absolute bottom-2 left-2 p-2 bg-black/60 backdrop-blur-sm rounded border border-white/10 scale-90 origin-bottom-left">
+<div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
+<span class="text-[6px] text-white/40 font-bold">X</span>
+<span class="text-[6px] text-white font-mono">192.4</span>
+<span class="text-[6px] text-white/40 font-bold">Y</span>
+<span class="text-[6px] text-white font-mono">084.2</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-between items-center px-4 pb-6 pt-3 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-2xl border-t border-white/20 rounded-t-[2.5rem] shadow-lg">
+<a class="flex-1 flex flex-col items-center justify-center text-zinc-400 opacity-60 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-0.5 text-[20px]">videocam</span>
+<span class="font-['Inter'] font-extrabold tracking-[0.2em] text-[7px] uppercase">MONITOR</span>
+</a>
+<a class="flex-1 flex flex-col items-center justify-center text-zinc-900 dark:text-white bg-zinc-100/60 dark:bg-zinc-800/60 rounded-2xl py-2 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined mb-0.5 text-[20px]">settings_accessibility</span>
+<span class="font-['Inter'] font-extrabold tracking-[0.2em] text-[7px] uppercase">CALIBRATE</span>
+</a>
+<a class="flex-1 flex flex-col items-center justify-center text-zinc-400 opacity-60 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-0.5 text-[20px]">tune</span>
+<span class="font-['Inter'] font-extrabold tracking-[0.2em] text-[7px] uppercase">LOGIC</span>
+</a>
+<a class="flex-1 flex flex-col items-center justify-center text-zinc-400 opacity-60 active:scale-90 transition-all" href="#">
+<span class="material-symbols-outlined mb-0.5 text-[20px]">bluetooth</span>
+<span class="font-['Inter'] font-extrabold tracking-[0.2em] text-[7px] uppercase">CONNECT</span>
+</a>
+</nav>
+</body></html>

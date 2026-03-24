@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#e6e6e6",
+              "on-tertiary-fixed-variant": "#555555",
+              "primary-container": "#32353d",
+              "error": "#ba1a1a",
+              "outline": "#c0c0c0",
+              "on-secondary": "#ffffff",
+              "on-secondary-fixed-variant": "#555555",
+              "primary-dim": "#515258",
+              "surface-container-high": "#e9ecef",
+              "tertiary": "#555555",
+              "primary": "#111318",
+              "primary-fixed": "#e6e6e6",
+              "surface-container": "#f1f3f5",
+              "surface": "#ffffff",
+              "background": "#ffffff",
+              "on-secondary-container": "#111318",
+              "surface-dim": "#e6e6e6",
+              "on-primary-fixed": "#111318",
+              "secondary": "#8e8e8e",
+              "on-tertiary-container": "#111318",
+              "inverse-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "surface-tint": "#111318",
+              "on-tertiary-fixed": "#111318",
+              "on-primary-fixed-variant": "#32353d",
+              "on-secondary-fixed": "#111318",
+              "surface-container-low": "#f8f9fa",
+              "on-background": "#111318",
+              "on-primary-container": "#f8f9fa",
+              "on-surface-variant": "#434655",
+              "outline-variant": "#e6e6e6",
+              "tertiary-dim": "#53506b",
+              "on-surface": "#111318",
+              "secondary-container": "#c0c0c0",
+              "primary-fixed-dim": "#c0c0c0",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#e6e6e6",
+              "error-dim": "#4e0309",
+              "surface-variant": "#f1f3f5",
+              "inverse-surface": "#2e3039",
+              "tertiary-fixed-dim": "#f1f3f5",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed": "#ffffff",
+              "secondary-fixed": "#f8f9fa",
+              "secondary-dim": "#515359",
+              "surface-container-highest": "#dee2e6",
+              "surface-bright": "#ffffff",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "inverse-on-surface": "#f0f0fc"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .inner-shadow {
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+        }
+        .glass-layer {
+            backdrop-filter: blur(20px);
+        }
+        .metallic-gradient {
+            background: linear-gradient(135deg, #e6e6e6 0%, #8e8e8e 100%);
+        }
+        .face-mesh-overlay {
+            background-image: radial-gradient(circle at center, transparent 0%, transparent 100%), 
+                              repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(34, 197, 94, 0.15) 1px, rgba(34, 197, 94, 0.15) 2px),
+                              repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(34, 197, 94, 0.15) 1px, rgba(34, 197, 94, 0.15) 2px);
+        }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, rgba(34, 197, 94, 0.1), transparent);
+            animation: scanline 8s linear infinite;
+        }
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background selection:bg-primary selection:text-white">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white/60 dark:bg-zinc-950/60 backdrop-blur-xl flex justify-between items-center px-4 py-4 shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-zinc-900 text-xl" data-icon="security">security</span>
+<h1 class="font-extrabold tracking-[0.3em] text-[12px] text-zinc-900 dark:text-white uppercase">FOCUS</h1>
+</div>
+<div class="flex items-center gap-4">
+<nav class="hidden sm:flex gap-4">
+<a class="text-zinc-900 dark:text-white font-extrabold tracking-[0.1em] uppercase text-[10px]" href="#">MONITOR</a>
+</nav>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-white/20">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnL6rASJXe3n3Jb9CbL0eyaxW78PUSeWc5OO6WGFly7ECom3lGGrAzHsOfnDPEDhWGy8AvDOgq8q5nr0qNUVSKkx8TW646TI-OnhbQlfUo-e0wbhcHpTwvQBYblZS-oim9X8kCjhuSJkYRsa30FJk5A7nDn74_aA4tM5f4XVIl7_VxWigF8weayUsnSw4ULuSEdYFaVclOTA4HYDUJSjzbyz8DCHt9MZEya8SLuKinxVpvmbyHz5f1v7-z_oHEP4sBJWPQ_SlDXcQ"/>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32 px-4 max-w-full mx-auto space-y-6 overflow-x-hidden">
+<!-- Hero Section: Monitoring Canvas -->
+<section class="relative h-[40vh] min-h-[320px] w-full">
+<div class="absolute inset-0 bg-surface-container-low rounded-[24px] rotate-[0.2deg] -z-10 opacity-30"></div>
+<div class="relative h-full w-full bg-black rounded-[24px] overflow-hidden shadow-lg scanline border border-white/10">
+<!-- Simulation Feed -->
+<div class="absolute inset-0 face-mesh-overlay pointer-events-none opacity-50">
+<!-- Detected Face A -->
+<div class="absolute top-[20%] left-[10%] w-32 h-32 border border-green-500/20 rounded-full flex items-center justify-center">
+<div class="absolute text-[8px] font-bold text-green-500 tracking-[0.1em] top-0 -translate-y-4">ID: 0942_ACTIVE</div>
+</div>
+<!-- Detected Face B -->
+<div class="absolute top-[35%] right-[15%] w-40 h-40 border border-error/20 rounded-full flex items-center justify-center">
+<div class="w-32 h-32 border-b-2 border-l-2 border-error/40 rounded-full animate-pulse"></div>
+<div class="absolute text-[8px] font-bold text-error tracking-[0.1em] top-0 -translate-y-4">ID: 1102_OFF_AXIS</div>
+<div class="absolute w-8 h-8 border border-error rounded-full animate-ping"></div>
+</div>
+</div>
+<!-- HUD Overlays -->
+<div class="absolute top-4 left-4 flex flex-col gap-2">
+<div class="bg-primary/95 text-white px-3 py-1 rounded-full flex items-center gap-2 shadow-lg scale-90 origin-top-left">
+<div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+<span class="font-bold tracking-[0.2em] text-[9px]">LIVE</span>
+</div>
+<div class="bg-white/10 backdrop-blur-md text-white px-3 py-1 rounded-full border border-white/10 scale-90 origin-top-left">
+<span class="font-bold tracking-[0.1em] text-[8px]">FOV: 114.2°</span>
+</div>
+</div>
+<div class="absolute bottom-4 right-4 text-right flex flex-col items-end gap-2">
+<div class="flex flex-col items-end">
+<div class="text-error font-black tracking-[0.2em] text-[12px] uppercase">TARGET LOCKED</div>
+<div class="h-0.5 w-16 bg-error mt-0.5"></div>
+</div>
+<div class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-lg border border-white/10">
+<span class="font-mono text-[9px] text-white/80">XY: 142.02 / 092.41</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Population -->
+<div class="bg-surface-container-low p-5 rounded-[24px] border border-surface-container flex flex-col justify-between aspect-square">
+<span class="font-extrabold tracking-[0.2em] text-[9px] text-secondary">POPULATION</span>
+<div>
+<div class="text-4xl font-light mb-1">24</div>
+<span class="font-medium tracking-[0.1em] text-[8px] opacity-40 uppercase">Detected</span>
+</div>
+</div>
+<!-- Distracted -->
+<div class="bg-surface-container-low p-5 rounded-[24px] border border-surface-container flex flex-col justify-between aspect-square">
+<span class="font-extrabold tracking-[0.2em] text-[9px] text-error">DISTRACTED</span>
+<div>
+<div class="text-4xl font-light mb-1 text-error">03</div>
+<span class="font-medium tracking-[0.1em] text-[8px] opacity-40 uppercase">Alerts</span>
+</div>
+</div>
+</div>
+<!-- Processor & Action -->
+<div class="space-y-4">
+<div class="bg-primary p-5 rounded-[24px] flex items-center justify-between text-white">
+<div class="flex flex-col">
+<span class="font-extrabold tracking-[0.2em] text-[9px] opacity-40">PROCESSOR</span>
+<div class="text-3xl font-light">12<span class="text-sm ml-1">ms</span></div>
+</div>
+<span class="font-medium tracking-[0.1em] text-[8px] opacity-40 uppercase">System Pulse</span>
+</div>
+<!-- Hardware Controls -->
+<div class="bg-white/40 glass-layer p-6 rounded-[24px] border border-white/60 flex flex-col items-center gap-6 shadow-sm">
+<div class="text-center">
+<span class="font-extrabold tracking-[0.3em] text-[10px] text-primary">HARDWARE_OVERRIDE</span>
+<p class="font-light text-[9px] tracking-widest opacity-40 uppercase mt-1">Photo-Thermal Stimulus</p>
+</div>
+<button class="relative w-32 h-32 rounded-full metallic-gradient p-1 active:scale-95 transition-all shadow-xl group">
+<div class="w-full h-full rounded-full bg-white/90 backdrop-blur-xl flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[32px] text-primary" data-icon="settings_accessibility" style="font-variation-settings: 'FILL' 1;">settings_accessibility</span>
+<span class="font-extrabold tracking-[0.2em] text-[10px] text-primary">START</span>
+</div>
+</button>
+<div class="flex items-center gap-6 border-t border-primary/5 pt-4 w-full justify-center">
+<button class="font-extrabold tracking-[0.2em] text-[9px] uppercase opacity-40 hover:opacity-100">Safety</button>
+<div class="h-3 w-[1px] bg-primary/10"></div>
+<button class="font-extrabold tracking-[0.2em] text-[9px] uppercase opacity-40 hover:opacity-100">Manual</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-2xl rounded-t-[32px] border-t border-white/30 shadow-2xl">
+<a class="flex flex-col items-center justify-center text-zinc-900 dark:text-white bg-zinc-100 dark:bg-zinc-800 rounded-2xl px-5 py-2 transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="videocam" style="font-variation-settings: 'FILL' 1;">videocam</span>
+<span class="font-extrabold tracking-[0.2em] text-[8px] uppercase mt-1">MONITOR</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="settings_accessibility">settings_accessibility</span>
+<span class="font-extrabold tracking-[0.2em] text-[8px] uppercase mt-1">CALIBRATE</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="tune">tune</span>
+<span class="font-extrabold tracking-[0.2em] text-[8px] uppercase mt-1">LOGIC</span>
+</a>
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="bluetooth">bluetooth</span>
+<span class="font-extrabold tracking-[0.2em] text-[8px] uppercase mt-1">LINK</span>
+</a>
+</nav>
+</body></html>
