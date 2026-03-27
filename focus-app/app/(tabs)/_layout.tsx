@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
-import { View, Text, StyleSheet } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { View, Text, StyleSheet, Platform } from 'react-native';
+import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 import { MounSilverTheme } from '../../src/theme/theme';
 
 export default function TabLayout() {
@@ -10,16 +10,19 @@ export default function TabLayout() {
         headerShown: false,
         tabBarStyle: styles.tabBar,
         tabBarShowLabel: false,
+        tabBarActiveTintColor: MounSilverTheme.colors.primary,
+        tabBarInactiveTintColor: MounSilverTheme.colors.inactiveIcon,
       }}>
       <Tabs.Screen
         name="monitor"
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ focused, color }) => (
             <View style={[styles.iconContainer, focused && styles.activeIndicator]}>
               <MaterialIcons 
                 name="videocam" 
-                size={24} 
-                color={focused ? MounSilverTheme.colors.primary : MounSilverTheme.colors.inactiveIcon} 
+                size={22} 
+                color={color} 
+                style={focused ? styles.activeIcon : {}}
               />
               <Text style={[styles.label, focused && styles.activeLabel]}>MONITOR</Text>
             </View>
@@ -29,14 +32,15 @@ export default function TabLayout() {
       <Tabs.Screen
         name="calibrate"
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ focused, color }) => (
             <View style={[styles.iconContainer, focused && styles.activeIndicator]}>
               <MaterialIcons 
-                name="settings-accessibility" 
-                size={24} 
-                color={focused ? MounSilverTheme.colors.primary : MounSilverTheme.colors.inactiveIcon} 
+                name="tune" 
+                size={22} 
+                color={color} 
+                style={focused ? styles.activeIcon : {}}
               />
-              <Text style={[styles.label, focused && styles.activeLabel]}>CALIBRATE</Text>
+              <Text style={[styles.label, focused && styles.activeLabel]}>SENSE</Text>
             </View>
           ),
         }}
@@ -44,12 +48,13 @@ export default function TabLayout() {
       <Tabs.Screen
         name="connect"
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: ({ focused, color }) => (
             <View style={[styles.iconContainer, focused && styles.activeIndicator]}>
               <MaterialIcons 
                 name="bluetooth" 
-                size={24} 
-                color={focused ? MounSilverTheme.colors.primary : MounSilverTheme.colors.inactiveIcon} 
+                size={22} 
+                color={color} 
+                style={focused ? styles.activeIcon : {}}
               />
               <Text style={[styles.label, focused && styles.activeLabel]}>CONNECT</Text>
             </View>
@@ -63,33 +68,40 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   tabBar: {
     position: 'absolute',
-    bottom: 0,
-    backgroundColor: MounSilverTheme.colors.glassBase,
-    height: 90,
-    borderTopLeftRadius: 32,
-    borderTopRightRadius: 32,
+    bottom: Platform.OS === 'ios' ? 24 : 16,
+    left: 16,
+    right: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    height: 70,
+    borderRadius: 35,
     borderTopWidth: 1,
     borderTopColor: 'rgba(255,255,255,0.3)',
-    elevation: 0,
-    shadowColor: 'transparent',
-    paddingBottom: 20,
-    paddingTop: 10,
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    paddingHorizontal: 12,
   },
   iconContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 20,
-    borderRadius: 16,
+    height: 50,
+    width: 80,
+    borderRadius: 25,
+    marginTop: 25,
   },
   activeIndicator: {
-    backgroundColor: MounSilverTheme.colors.activeIndicator,
+    backgroundColor: '#f4f4f5',
+  },
+  activeIcon: {
+    transform: [{ scale: 1.1 }],
   },
   label: {
     fontFamily: MounSilverTheme.typography.fontFamily.extrabold,
-    fontSize: 8,
+    fontSize: 7,
     letterSpacing: 2,
-    marginTop: 4,
+    marginTop: 2,
     color: MounSilverTheme.colors.inactiveIcon,
   },
   activeLabel: {

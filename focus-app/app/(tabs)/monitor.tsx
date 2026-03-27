@@ -3,12 +3,20 @@ import { StyleSheet, Text, View, Pressable, Animated, Easing, ScrollView, Dimens
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MounSilverTheme } from '../../src/theme/theme';
 import { MaterialIcons } from '@expo/vector-icons';
+import { useFocusGuard } from '../../src/hooks/useFocusGuard';
 
 const { width, height } = Dimensions.get('window');
 
 export default function MonitorScreen() {
   const pulseAnim = useRef(new Animated.Value(1)).current;
   const scanlineAnim = useRef(new Animated.Value(0)).current;
+  const { sendUpdate, systemState } = useFocusGuard();
+  const [isLaserOn, setIsLaserOn] = React.useState(systemState.laser === 1);
+
+  // Sync with global state
+  useEffect(() => {
+    setIsLaserOn(systemState.laser === 1);
+  }, [systemState.laser]);
 
   useEffect(() => {
     // Pulse animation for button
@@ -53,6 +61,12 @@ export default function MonitorScreen() {
     outputRange: [-100, 320], // Assuming box is ~320px high
   });
 
+  const toggleLaser = () => {
+    const newState = !isLaserOn;
+    setIsLaserOn(newState);
+    sendUpdate(undefined, undefined, newState ? 1 : 0);
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header */}
@@ -75,21 +89,7 @@ export default function MonitorScreen() {
             {/* Simulated Grid Overlay */}
             <View style={styles.gridOverlay} />
             
-            {/* Detected Face A */}
-            <View style={[styles.faceDetectA, { top: '20%', left: '10%' }]}>
-              <Text style={styles.faceLabelA}>ID: 0942_ACTIVE</Text>
-            </View>
-
-            {/* Detected Face B */}
-            <View style={[styles.faceDetectB, { top: '35%', right: '15%' }]}>
-              <View style={styles.faceDetectBInner} />
-              <Text style={styles.faceLabelB}>ID: 1102_OFF_AXIS</Text>
-            </View>
-
-            {/* Animated Scanline */}
-            <Animated.View style={[styles.scanline, { transform: [{ translateY: scanlineTranslateY }] }]} />
-
-            {/* HUD Overlays */}
+            
             <View style={styles.hudTopLeft}>
               <View style={styles.badgeLive}>
                 <View style={[styles.pulseDot, { backgroundColor: '#22c55e' }]} />
@@ -101,10 +101,7 @@ export default function MonitorScreen() {
             </View>
 
             <View style={styles.hudBottomRight}>
-              <View style={styles.targetLockedContainer}>
-                <Text style={styles.targetLockedText}>TARGET LOCKED</Text>
-                <View style={styles.targetLockedLine} />
-              </View>
+              
               <View style={styles.badgeXy}>
                 <Text style={styles.badgeXyText}>XY: 142.02 / 092.41</Text>
               </View>
@@ -150,10 +147,20 @@ export default function MonitorScreen() {
           </View>
 
           {/* START Button */}
-          <Animated.View style={[styles.startButtonOuter, { transform: [{ scale: pulseAnim }] }]}>
-            <Pressable style={styles.startButtonInner} android_ripple={{ color: 'rgba(17, 19, 24, 0.1)', borderless: true }}>
-              <MaterialIcons name="settings-accessibility" size={32} color={MounSilverTheme.colors.primary} />
-              <Text style={styles.startButtonText}>START</Text>
+          <Animated.View style={[styles.startButtonOuter, { transform: [{ scale: pulseAnim }], opacity: isLaserOn ? 0.8 : 1 }]}>
+            <Pressable 
+                style={styles.startButtonInner} 
+                onPress={toggleLaser}
+                android_ripple={{ color: 'rgba(17, 19, 24, 0.1)', borderless: true }}
+            >
+              <MaterialIcons 
+                name={isLaserOn ? "flash-on" : "settings-accessibility"} 
+                size={32} 
+                color={isLaserOn ? "#ef4444" : MounSilverTheme.colors.primary} 
+              />
+              <Text style={[styles.startButtonText, isLaserOn && { color: '#ef4444' }]}>
+                {isLaserOn ? 'STOP' : 'START'}
+              </Text>
             </Pressable>
           </Animated.View>
 
